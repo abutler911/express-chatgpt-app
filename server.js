@@ -70,14 +70,7 @@ app.post("/generate", async (req, res) => {
   try {
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt: generatePrompt(
-        subject,
-        tone,
-        keywords,
-        samplePost,
-        postLength,
-        useEmojis
-      ),
+      prompt: generatePrompt(subject, tone, keywords, samplePost, postLength),
       temperature: 0.6,
       max_tokens: 100,
     });
@@ -99,16 +92,7 @@ app.post("/generate", async (req, res) => {
   }
 });
 
-function generatePrompt(
-  subject,
-  tone,
-  keywords,
-  samplePost,
-  postLength,
-  hashtags,
-
-  useEmojis
-) {
+function generatePrompt(subject, tone, keywords, samplePost, postLength) {
   const keywordList = keywords.split(",").map((kw) => kw.trim());
   //   const hashtagsList = hashtags.split(",").map((ht) => ht.trim());
 
@@ -127,7 +111,7 @@ function generatePrompt(
       Post Length: ${postLength} words
       Hashtags: ${hashtagsList.join(", ")}
       
-      Use Emojis: ${useEmojis}
+      
       
       Sample Post: ${samplePost}
       
