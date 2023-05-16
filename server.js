@@ -102,19 +102,12 @@ function generatePrompt(subject, tone, keywords, samplePost, postLength) {
     generatedPost.push(words[i % words.length]);
   }
 
-  return `Generate an Instagram post with the following details:
-    
-      Subject: ${subject}
-      Tone: ${tone}
-      Keywords: ${keywordList.join(", ")}
-      Post Length: ${postLength} words
-      
-      
-      
-      
-      Sample Post: ${samplePost}
-      
-      Your Post: ${generatedPost.join(" ")}`;
+  return `Write an Instagram post about ${subject}, write it in a ${tone} tone, use words like ${keywordList.join(
+    ", "
+  )}. Make it about ${postLength} words
+  long and make sure and use the word YOU instead of I, ME, or MY. Also, include some cool emojis and three to five relevant hashtags.`;
+
+  //   Your Post: ${generatedPost.join(" ")}`;
 }
 
 app.listen(process.env.PORT || 3000, () => {
