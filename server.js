@@ -56,6 +56,17 @@ app.post("/generate", async (req, res) => {
     return;
   }
 
+  const postLength = parseInt(req.body.postLength);
+
+  if (isNaN(postLength) || postLength <= 0) {
+    res.status(400).json({
+      error: {
+        message: "Please enter a valid post length",
+      },
+    });
+    return;
+  }
+
   try {
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
