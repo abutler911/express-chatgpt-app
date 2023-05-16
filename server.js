@@ -59,7 +59,15 @@ app.post("/generate", async (req, res) => {
   try {
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt: generatePrompt(subject, tone, keywords, samplePost),
+      prompt: generatePrompt(
+        subject,
+        tone,
+        keywords,
+        samplePost,
+        postLength,
+        hashtags,
+        useEmojis
+      ),
       temperature: 0.6,
       max_tokens: 100,
     });
