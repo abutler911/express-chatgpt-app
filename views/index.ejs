@@ -61,7 +61,7 @@ the post (comma separated)"
                 autocomplete="off"
               />
             </div>
-            <div class="mb-3">
+            <!-- <div class="mb-3">
               <label class="form-label">Post Length</label>
               <input
                 type="number"
@@ -72,7 +72,7 @@ the post (comma separated)"
                 required
                 autocomplete="off"
               />
-            </div>
+            </div> -->
             <!-- <div class="mb-3 form-check">
               <input
                 type="checkbox"
@@ -101,14 +101,13 @@ the post (comma separated)"
                 class="form-control"
                 placeholder="Enter a sample post"
                 rows="5"
-                required
                 autocomplete="off"
               ></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Generate Post</button>
           </form>
           <% if (result) { %>
-          <div class="mt-3"><%= result %></div>
+          <div class="mt-3" id="result"><%= result %></div>
           <% } %>
         </div>
       </div>
