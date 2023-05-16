@@ -76,7 +76,6 @@ app.post("/generate", async (req, res) => {
         keywords,
         samplePost,
         postLength,
-        hashtags,
         useEmojis
       ),
       temperature: 0.6,
@@ -111,7 +110,7 @@ function generatePrompt(
   useEmojis
 ) {
   const keywordList = keywords.split(",").map((kw) => kw.trim());
-  const hashtagsList = hashtags.split(",").map((ht) => ht.trim());
+  //   const hashtagsList = hashtags.split(",").map((ht) => ht.trim());
 
   const words = samplePost.split(" ");
   const generatedPost = [];
