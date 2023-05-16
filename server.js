@@ -94,7 +94,6 @@ app.post("/generate", async (req, res) => {
 
 function generatePrompt(subject, tone, keywords, samplePost, postLength) {
   const keywordList = keywords.split(",").map((kw) => kw.trim());
-  //   const hashtagsList = hashtags.split(",").map((ht) => ht.trim());
 
   const words = samplePost.split(" ");
   const generatedPost = [];
@@ -109,7 +108,7 @@ function generatePrompt(subject, tone, keywords, samplePost, postLength) {
       Tone: ${tone}
       Keywords: ${keywordList.join(", ")}
       Post Length: ${postLength} words
-      Hashtags: ${hashtagsList.join(", ")}
+      
       
       
       
