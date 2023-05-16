@@ -116,6 +116,6 @@ function generatePrompt(
       Your Post: ${generatedPost.join(" ")}`;
 }
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log(`Server is up on port ${PORT}...`);
 });
