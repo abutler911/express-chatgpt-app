@@ -1,5 +1,5 @@
 body {
-    background-color: #8ad9fd;
+    background-color: #9DD9D2;
     font-family: 'Merriweather', serif;
     color: #000;
 }
@@ -10,7 +10,7 @@ body {
 
 h3 {
     font-weight: bold;
-    font-size: 24px;
+    font-size: 2.2em;
     text-align: center;
 }
 
@@ -20,6 +20,7 @@ h3 {
 
 .form-label {
     font-weight: bold;
+    font-size: 1.3em;
 }
 
 textarea.form-control {
@@ -27,8 +28,8 @@ textarea.form-control {
 }
 
 .btn-primary {
-    background-color: #4c6ef5;
-    border-color: #4c6ef5;
+    background-color: #8879b9;
+    border-color: gray;
     font-weight: bold;
 }
 

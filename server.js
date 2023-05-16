@@ -4,6 +4,7 @@ const path = require("path");
 const { Configuration, OpenAIApi } = require("openai");
 const session = require("express-session");
 require("dotenv").config();
+const PORT = process.env.PORT;
 
 const app = express();
 
@@ -115,6 +116,6 @@ function generatePrompt(
       Your Post: ${generatedPost.join(" ")}`;
 }
 
-app.listen(3000, () => {
-  console.log("Server is running on port 3000");
+app.listen(PORT, () => {
+  console.log(`Server is up on port ${PORT}...`);
 });
