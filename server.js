@@ -56,23 +56,15 @@ app.post("/generate", async (req, res) => {
     return;
   }
 
-  //   const postLength = parseInt(req.body.postLength);
-
-  //   if (isNaN(postLength) || postLength <= 0) {
-  //     res.status(400).json({
-  //       error: {
-  //         message: "Please enter a valid post length",
-  //       },
-  //     });
-  //     return;
-  //   }
-
   try {
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
       prompt: generatePrompt(subject, tone, keywords, samplePost),
       temperature: 0.5,
-      max_tokens: 250,
+      max_tokens: 500,
+      top_p: 1,
+      frequency_penalty: 0,
+      presence_penalty: 0,
     });
 
     req.session.result = completion.data.choices[0].text;
@@ -95,19 +87,9 @@ app.post("/generate", async (req, res) => {
 function generatePrompt(subject, tone, keywords, samplePost) {
   const keywordList = keywords.split(",").map((kw) => kw.trim());
 
-  //   const words = samplePost.split(" ");
-  //   const generatedPost = [];
-
-  //   for (let i = 0; i < postLength; i++) {
-  //     generatedPost.push(words[i % words.length]);
-  //   }
-
   return `Write an Instagram post about ${subject}, use ${samplePost} as an example and write it in a ${tone} tone, use words like ${keywordList.join(
     ", "
-  )}. Make it about 150 words
-  long and make sure and use the word you instead of I, me, or my. Also, include some cool emojis and three to five relevant hashtags.`;
-
-  //   Your Post: ${generatedPost.join(" ")}`;
+  )}. Make it about 175 words long and make sure and use the word you instead of I, me, or my. Also, include some cool emojis and three to five relevant hashtags.`;
 }
 
 app.listen(process.env.PORT || 3000, () => {
